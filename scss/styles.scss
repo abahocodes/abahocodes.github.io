@@ -347,7 +347,7 @@ footer {
 
 #lead {
     position: relative;
-    height: 100vh;
+    height: 70vh;
     min-height: 500px;
     max-height: 1080px;
     background: url(../images/coffee-shop-bg.jpg);
@@ -361,7 +361,7 @@ footer {
     z-index: 10;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-20%, -50%);
     text-align: center;
 
     h1, h2 {
