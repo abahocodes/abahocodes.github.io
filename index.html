@@ -99,7 +99,9 @@
                    The suite was released in the Spring of 2019 and is already receiving rave reviews. 
                 </p>
                 <br>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/LDGSMnJysdQ" frameborder="5" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div style="position:relative;padding-top:56.25%;">
+                    <iframe src="https://www.youtube.com/embed/LDGSMnJysdQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                </div>
             </div>
             
             <div data-date="December 2016 – June 2018">
@@ -157,37 +159,36 @@
         <h2 class="heading">Projects</h2>
         <div class="container">
             <div class="row">
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="images/project.jpg" />
-                    </div>
-                    <!-- End .project-image -->
-                    <div class="project-info">
-                        <h3>Project Name Here</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat.
-                        </p>
-                        <a href="#">View Project</a>
-                    </div>
-                    <!-- End .project-info -->
-                </div>
-                <!-- End .project -->
 
                 <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="images/project.jpg" />
-                    </div>
-                    <!-- End .project-image -->
                     <div class="project-info">
-                        <h3>Project Name Here</h3>
+                        <h3>ShapeNet 3D Style Transfer</h3>
+                        <img src="./images/3d_style_transfer_images.png" width="50%">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat.
+                            Consider what a certain car would look like as a plane or maybe what a certain plant would look as a tree. More practically, we may want to
+                            translate a certain design of living room furniture to its analog as a kitchen dining set. The following project explored this kind of question.
+                            ShapeNet is a database of 3D occupancy spaces (think 3D images) grouped by taxonomy. Using CycleGAN, we explored whether we could train deep nets
+                            to determine a bijection between these taxonomies. For more details and our results, see the <a href="./3d_style_transfer.pdf">report</a> 
                         </p>
-                        <a href="#">View Project</a>
                     </div>
-                    <!-- End .project-info -->
                 </div>
-                <!-- End .project -->
+
+                <div class="project shadow-large">
+                    <div class="project-info">
+                        <h3>Baxter solves the Rubik's Cube</h3>
+                        <p>
+                            As the title suggests this project was an exploration in teaching a Baxter robot to solves a Rubik's Cube. Initially, the idea
+                            was to simulate the basic movements used to manipulate the cube in simulation and then using the simulated vision capabilities of
+                            the robot learn a deep model for solving the cube. The secondary approach applied the same problem in the real world (shown below),
+                            and while I was not able to fully achieve an autonomous Rubik's Cube solving robot, I was able to achieve single arm cube manipulations.
+                            For more details, read the full <a href="./baxter_solves_cube_paper.pdf">report</a>.
+                        </p>
+                        <div style="position:relative;padding-top:56.25%;">
+                            <iframe src="https://drive.google.com/file/d/1q74bxMWrpkhh7uJEl4xtlmpwjC98yDd_/preview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
