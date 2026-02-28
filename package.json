@@ -1,30 +1,20 @@
 {
-  "name": "devportfolio-template",
-  "version": "1.1.3",
-  "description": "",
-  "main": "js/scripts.js",
+  "name": "abaho-portfolio",
+  "type": "module",
+  "version": "1.0.0",
   "scripts": {
-    "watch": "gulp watch",
-    "start": "http-server",
-    "lint": "eslint"
+    "prebuild": "node scripts/build-resume.mjs",
+    "predev": "node scripts/build-resume.mjs",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "build:resume": "node scripts/build-resume.mjs"
   },
-  "keywords": [
-    "portfolio",
-    "personal",
-    "website",
-    "tech",
-    "coding",
-    "dev"
-  ],
-  "author": "Ryan Fitzgerald",
-  "license": "MIT",
-  "devDependencies": {
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^6.0.0",
-    "gulp-plumber": "^1.2.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-uglify": "^3.0.1",
-    "gulp-wait": "0.0.2"
+  "dependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "@iconify-json/lucide": "^1.1.0",
+    "astro": "^5.18.0",
+    "astro-icon": "^1.1.0",
+    "tailwindcss": "^3.4.0"
   }
 }

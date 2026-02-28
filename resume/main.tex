@@ -1,0 +1,118 @@
+% Resume - Abaho Katabarwa
+% Compile with: pdflatex main.tex
+
+\documentclass[10pt, letterpaper]{article}
+
+% --- Packages ---
+\usepackage[margin=0.55in, top=0.45in, bottom=0.45in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{charter}
+
+% --- Hyperlink styling ---
+\hypersetup{colorlinks=true, urlcolor=black, linkcolor=black}
+
+% --- Section formatting ---
+\titleformat{\section}{\normalsize\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{7pt}{4pt}
+
+% --- No page numbers ---
+\pagestyle{empty}
+
+% --- List spacing ---
+\setlist[itemize]{itemsep=1.5pt, topsep=2pt, leftmargin=*, parsep=0pt}
+
+% --- Custom commands ---
+\newcommand{\employer}[3]{%
+  \textbf{\large #1} \hfill \textbf{#3} \\[1pt]
+  \textit{#2}\vspace{2pt}
+}
+
+\begin{document}
+
+% -----------------------------------------------
+%  HEADER
+% -----------------------------------------------
+\begin{center}
+  {\LARGE \textbf{Abaho Katabarwa}} \\[4pt]
+  \small
+  \href{https://abahocodes.github.io}{abahocodes.github.io} \quad|\quad
+  \href{https://www.linkedin.com/in/abaho-katabarwa}{linkedin.com/in/abaho-katabarwa} \quad|\quad
+  \href{mailto:abahomyster@gmail.com}{abahomyster@gmail.com} \quad|\quad 650.285.7980
+\end{center}
+
+\vspace{3pt}
+
+% -----------------------------------------------
+%  EDUCATION
+% -----------------------------------------------
+\section{Education}
+
+\noindent\textbf{Brown University} --- MS in Computer Science \hfill 2019 \\[1pt]
+\noindent\textbf{Stanford University} --- BS in Computer Science \hfill 2015
+
+\vspace{2pt}
+
+% -----------------------------------------------
+%  SKILLS
+% -----------------------------------------------
+\section{Skills}
+
+\begin{itemize}
+  \item Proficient in strongly typed and systems languages (Rust, C++, Java) and scripting/functional languages (TypeScript, Python, Scala)
+  \item Experienced fullstack engineer: frontend (React, React Native, Next.js, etc) and backend (distributed systems, cloud infrastructure on AWS/Azure)
+  \item Experienced in embedded and real-time systems engineering (SDK development, set-top box middleware, sub-microsecond latency constraints)
+\end{itemize}
+
+\vspace{2pt}
+
+% -----------------------------------------------
+%  EXPERIENCE
+% -----------------------------------------------
+\section{Experience}
+
+\employer{Stealth Agentic Workflow Startup}{Founder, CEO \& Solo Lead Engineer}{Sep 2024 -- Present \quad Seattle, WA}
+\begin{itemize}
+  \item Architected and built a multi-tenant LLM-powered agentic workflow platform targeting low-to-no-code users, enabling non-technical users to build and deploy complex AI workflows without writing code
+  \item Delivers sub-5-second end-to-end workflow completion at high availability across a large consumer base, with routing across all major LLM providers based on workflow requirements
+  \item Engineered a high-performance Rust backend optimized for concurrency, memory safety, and low-latency task dispatch, paired with a Next.js frontend for workflow authoring, execution, and monitoring
+  \item Implemented comprehensive CI test infrastructure (unit, integration, end-to-end) with automated deployment pipelines across environments
+\end{itemize}
+
+\vspace{6pt}
+
+\employer{Microsoft -- Semantic Machines}{Senior Software Engineer}{Sep 2023 -- Sep 2024 \quad Seattle, WA}
+\begin{itemize}
+  \item Architected and maintained the evaluation and analytics pipeline for Microsoft Copilot, owning infrastructure design, metrics, and reporting; reduced pipeline runtime from multiple days to a few hours
+  \item Delivered data tooling and reporting solutions for data science teams to track and validate Copilot quality at scale
+  \item Designed metric calibration infrastructure to validate evaluation fidelity
+\end{itemize}
+
+\vspace{6pt}
+
+\employer{Microsoft -- Semantic Machines}{Software Engineer II}{Feb 2020 -- Sep 2023 \quad Seattle, WA}
+\begin{itemize}
+  \item Designed and delivered the full developer toolchain for a conversational AI SDK: VSCode extension with LSP support, CLI, and documentation
+  \item Drove enterprise customer adoption by resolving integration blockers and shaping the API surface from real-world usage feedback
+  \item Built CI pipelines, training pipeline optimization, and alerting infrastructure
+\end{itemize}
+
+\vspace{6pt}
+
+\employer{Microsoft}{Software Engineer Masters Intern}{June 2019 -- Aug 2019 \quad Cambridge, MA}
+\begin{itemize}
+  \item Built a mobile app leveraging Microsoft Cognitive Services and neural image transformation to empower students to create AI-generated art, with a ReactJS community display exhibited in a major cultural institution
+\end{itemize}
+
+\vspace{6pt}
+
+\employer{Bowers \& Wilkins}{Software Engineer}{June 2015 -- June 2018 \quad Redwood City, CA}
+\begin{itemize}
+  \item Architected and delivered the audio source/sink manager and associated audio plugins (Spotify, Roon, AirPlay) powering the Formation Series (commercially shipped networked wireless speakers) under a strict sub-10-microsecond inter-device synchronization latency budget
+  \item Built the application layer and SDK for a Broadcom VideoHub set-top box; delivered an IP camera discovery and media streaming engine; developed a hierarchical multi-process persistent data store
+\end{itemize}
+
+\end{document}
