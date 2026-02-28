@@ -84,5 +84,28 @@ typings/
 # FuseBox cache
 .fusebox/
 
-# DynamoDB Local files
-.dynamodb/
+# Astro build output
+dist/
+.astro/
+
+# Dependencies
+node_modules/
+
+# LaTeX build artifacts (only the source is tracked, not the compiled output)
+resume/*.pdf
+resume/*.aux
+resume/*.log
+resume/*.out
+resume/*.fls
+resume/*.fdb_latexmk
+resume/*.synctex.gz
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+

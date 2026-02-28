@@ -9,14 +9,14 @@
   },
   {
     "label": "Specialties",
-    "value": "Systems Engineering · LLM/AI Platforms · Fullstack"
+    "value": "Fullstack · Systems Engineering · LLM/AI Platforms"
   },
   {
     "label": "Education",
-    "value": "<strong class='text-site-accent'>MS</strong> Brown · <strong class='text-site-accent'>BS</strong> Stanford"
+    "value": "<strong class='text-site-accent'>MS</strong> Brown University · <strong class='text-site-accent'>BS</strong> Stanford University"
   },
   {
     "label": "Languages",
-    "value": "Rust · Scala · C++ · Java · TypeScript · Python"
+    "value": "Rust · Scala · C++ · TypeScript · Python · Java"
   }
 ]
