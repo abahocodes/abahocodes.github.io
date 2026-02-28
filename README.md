@@ -29,6 +29,7 @@ sudo apt install texlive-latex-base  # Ubuntu/Debian
 ```
 
 To compile the resume without running the full build:
+
 ```bash
 npm run build:resume
 ```
@@ -73,33 +74,33 @@ portfolio/
 
 ## Updating Content
 
-| What to change              | File to edit                    |
-|-----------------------------|---------------------------------|
-| Add a social media link     | `src/data/socials.json`         |
-| Update name / bio / email   | `src/data/person.json`          |
-| Add/edit a job              | `src/data/experience.json`      |
-| Add/edit a project          | `src/data/projects.json`        |
-| Edit skills                 | `src/data/skills.json`          |
-| Edit education              | `src/data/education.json`       |
-| Edit hero sidebar stats     | `src/data/hero-stats.json`      |
-| Edit about facts            | `src/data/about-facts.json`     |
-| Edit resume content         | `resume/main.tex`               |
+| What to change            | File to edit                |
+| ------------------------- | --------------------------- |
+| Add a social media link   | `src/data/socials.json`     |
+| Update name / bio / email | `src/data/person.json`      |
+| Add/edit a job            | `src/data/experience.json`  |
+| Add/edit a project        | `src/data/projects.json`    |
+| Edit skills               | `src/data/skills.json`      |
+| Edit education            | `src/data/education.json`   |
+| Edit hero sidebar stats   | `src/data/hero-stats.json`  |
+| Edit about facts          | `src/data/about-facts.json` |
+| Edit resume content       | `resume/main.tex`           |
 
 **Adding a social link** is one JSON object in `socials.json` — it automatically
 appears in the About facts panel, the Contact section buttons, and the footer.
 
 ## Design Tokens (tailwind.config.mjs)
 
-| Token           | Value     | Usage              |
-|-----------------|-----------|--------------------|
-| `site-bg`       | `#0e0e0e` | Page background    |
-| `site-bg2`      | `#141414` | Card backgrounds   |
-| `site-bg3`      | `#1a1a1a` | Tag backgrounds    |
-| `site-border`   | `#2a2a2a` | All borders        |
-| `site-text`     | `#e8e4dc` | Primary text       |
-| `site-muted`    | `#7a7570` | Secondary text     |
-| `site-accent`   | `#c9a96e` | Gold accent        |
-| `site-accent2`  | `#8fb8a0` | Green accent       |
+| Token          | Value     | Usage            |
+| -------------- | --------- | ---------------- |
+| `site-bg`      | `#0e0e0e` | Page background  |
+| `site-bg2`     | `#141414` | Card backgrounds |
+| `site-bg3`     | `#1a1a1a` | Tag backgrounds  |
+| `site-border`  | `#2a2a2a` | All borders      |
+| `site-text`    | `#e8e4dc` | Primary text     |
+| `site-muted`   | `#7a7570` | Secondary text   |
+| `site-accent`  | `#c9a96e` | Gold accent      |
+| `site-accent2` | `#8fb8a0` | Green accent     |
 
 ## Deploying
 
