@@ -10,16 +10,16 @@
  */
 (function () {
   // ── Email links ───────────────────────────────────────────────────────────
-  document.querySelectorAll('a.obf-email').forEach(function(el) {
+  document.querySelectorAll("a.obf-email").forEach(function (el) {
     try {
-      var user   = atob(el.dataset.u);
+      var user = atob(el.dataset.u);
       var domain = atob(el.dataset.d);
-      var addr   = user + '@' + domain;
-      var label  = el.dataset.label ? atob(el.dataset.label) : addr;
+      var addr = user + "@" + domain;
+      var label = el.dataset.label ? atob(el.dataset.label) : addr;
 
-      el.href = 'mailto:' + addr;
+      el.href = "mailto:" + addr;
 
-      if (el.dataset.iconOnly !== 'true') {
+      if (el.dataset.iconOnly !== "true") {
         el.textContent = label;
       }
       // Icon-only: href is set, innerHTML (the SVG) is left untouched
@@ -27,10 +27,10 @@
   });
 
   // ── Phone spans ───────────────────────────────────────────────────────────
-  document.querySelectorAll('span.obf-phone').forEach(function(el) {
+  document.querySelectorAll("span.obf-phone").forEach(function (el) {
     try {
       var parts = JSON.parse(atob(el.dataset.parts));
-      var sep   = atob(el.dataset.sep);
+      var sep = atob(el.dataset.sep);
       el.textContent = parts.join(sep);
     } catch (_) {}
   });
