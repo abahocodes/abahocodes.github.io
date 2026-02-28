@@ -1,0 +1,17 @@
+{
+  "name": "Abaho Katabarwa",
+  "tagline": "Engineer & Founder",
+  "location": "Seattle, WA",
+  "emailUser": "abahomyster",
+  "emailDomain": "gmail.com",
+  "phoneParts": ["650", "285", "7980"],
+  "website": "abahocodes.github.io",
+  "websiteUrl": "https://abahocodes.github.io",
+  "bio": [
+    "I'm a <strong class='text-site-text font-medium'>Ugandan-American engineer and founder</strong> with a deep interest in building products that make powerful technology accessible — not just to developers, but to everyone.",
+    "My career spans embedded systems at <strong class='text-site-text font-medium'>Bowers &amp; Wilkins</strong> (shipping real-time audio infrastructure under sub-10-microsecond latency budgets), conversational AI tooling at <strong class='text-site-text font-medium'>Microsoft Semantic Machines</strong>, and the evaluation pipeline powering <strong class='text-site-text font-medium'>Microsoft Copilot</strong>.",
+    "Today I'm building <a href='https://www.app-maker.ai' target='_blank' class='text-site-accent'>App Maker</a> — a <strong class='text-site-text font-medium'>low-to-no-code agentic workflow platform</strong> that lets non-technical users design, deploy, and monitor complex AI workflows without writing a single line of code.",
+    "Outside of engineering, I'm a long-distance runner chasing my next mile personal record."
+  ],
+  "heroSubtitle": "Systems engineer and founder building AI-powered tools that make complex technology accessible to everyone. Previously at Microsoft, Stanford, and Brown."
+}

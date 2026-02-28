@@ -1,0 +1,37 @@
+---
+/**
+ * Reusable social link with Lucide icon.
+ * For obfuscated email, render ObfuscatedEmail instead — this handles all others.
+ *
+ * Props:
+ *   href       — link destination
+ *   label      — display text
+ *   icon       — iconify icon name e.g. "lucide:github"
+ *   iconOnly   — if true, hide the label (icon + sr-only text only)
+ *   class      — extra classes for the <a> tag
+ */
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  href: string;
+  label: string;
+  icon: string;
+  iconOnly?: boolean;
+  class?: string;
+}
+
+const { href, label, icon: iconName, iconOnly = false, class: cls = '' } = Astro.props;
+const isExternal = href.startsWith('http');
+---
+<a
+  href={href}
+  class={`inline-flex items-center gap-2 no-underline transition-colors ${cls}`}
+  {...isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
+  aria-label={label}
+>
+  <Icon name={iconName} class="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+  {iconOnly
+    ? <span class="sr-only">{label}</span>
+    : <span>{label}</span>
+  }
+</a>
