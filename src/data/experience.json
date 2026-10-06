@@ -4,10 +4,10 @@
     "company": "App Maker",
     "companyUrl": "https://www.app-maker.ai",
     "location": "Seattle, WA",
-    "role": "Founder, CEO & Solo Lead Engineer",
+    "role": "Founder & Engineer",
     "bullets": [
-      "Building <a href='https://www.app-maker.ai' target='_blank' class='text-site-accent'>app-maker.ai</a> — a <strong class='text-site-text font-medium'>multi-tenant LLM-powered agentic workflow platform</strong> targeting low-to-no-code users, enabling non-technical users to build and deploy complex AI workflows without writing code",
-      "Delivers <strong class='text-site-text font-medium'>sub-5-second end-to-end workflow completion</strong> at high availability across a large consumer base, with intelligent routing across all major LLM providers",
+      "Architected and built <a href='https://www.app-maker.ai' target='_blank' class='text-site-accent'>app-maker.ai</a> — a <strong class='text-site-text font-medium'>multi-tenant LLM-powered agentic workflow platform</strong> that let non-technical users build and deploy complex AI workflows without writing code",
+      "Delivered <strong class='text-site-text font-medium'>sub-5-second end-to-end workflow completion</strong> with high availability, routing each workflow across all major LLM providers based on its requirements",
       "Engineered a <strong class='text-site-text font-medium'>high-performance Rust backend</strong> optimized for concurrency, memory safety, and low-latency task dispatch",
       "Built a <strong class='text-site-text font-medium'>Next.js frontend</strong> for workflow authoring, execution, and monitoring; implemented full CI test infrastructure with automated deployment pipelines"
     ]
@@ -20,8 +20,8 @@
     "bullets": [
       "Architected and maintained the <strong class='text-site-text font-medium'>evaluation and analytics pipeline for Microsoft Copilot</strong>, owning infrastructure design, metrics, and reporting",
       "<strong class='text-site-text font-medium'>Reduced pipeline runtime from multiple days to a few hours</strong> through infrastructure optimization and parallelization",
-      "Delivered data tooling and reporting solutions for data science teams to track and validate Copilot quality at scale",
-      "Designed metric calibration infrastructure to validate evaluation fidelity"
+      "Built data tooling and reporting that let data science teams track and validate Copilot quality at scale",
+      "Designed metric calibration infrastructure to verify that Copilot evaluation metrics measured quality faithfully"
     ]
   },
   {
@@ -32,7 +32,7 @@
     "bullets": [
       "Designed and delivered the <strong class='text-site-text font-medium'>full developer toolchain for a conversational AI SDK</strong>: VSCode extension with LSP support, CLI, and documentation",
       "Drove enterprise customer adoption by resolving integration blockers and shaping the API surface from real-world usage feedback",
-      "Built CI pipelines, training pipeline optimization, and alerting infrastructure"
+      "Built CI pipelines and alerting infrastructure; optimized model training pipelines"
     ]
   },
   {
@@ -41,8 +41,8 @@
     "location": "Cambridge, MA",
     "role": "Software Engineer Masters Intern",
     "bullets": [
-      "Built a mobile app leveraging <strong class='text-site-text font-medium'>Microsoft Cognitive Services and neural image transformation</strong> to empower students to create AI-generated art",
-      "Architected a ReactJS-powered community display exhibited in a major cultural institution"
+      "Built a mobile app using <strong class='text-site-text font-medium'>Microsoft Cognitive Services and neural image transformation</strong> that let students create AI-generated art",
+      "Architected a ReactJS-powered community display exhibited at a major cultural institution"
     ]
   },
   {

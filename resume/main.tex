@@ -10,6 +10,7 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{microtype}
+\usepackage[T1]{fontenc}
 \usepackage{charter}
 
 % --- Hyperlink styling ---
@@ -22,13 +23,22 @@
 % --- No page numbers ---
 \pagestyle{empty}
 
+% --- No hyphenation ---
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\emergencystretch=3em
+
 % --- List spacing ---
 \setlist[itemize]{itemsep=1.5pt, topsep=2pt, leftmargin=*, parsep=0pt}
 
 % --- Custom commands ---
-\newcommand{\employer}[3]{%
-  \textbf{\large #1} \hfill \textbf{#3} \\[1pt]
-  \textit{#2}\vspace{2pt}
+% \employer{Company}{Location}
+\newcommand{\employer}[2]{%
+  \vspace{6pt}\noindent\textbf{\large #1} \hfill \textit{#2} \\[1pt]
+}
+% \role{Title}{Dates}
+\newcommand{\role}[2]{%
+  \noindent\textit{#1} \hfill \textbf{#2}\vspace{2pt}
 }
 
 \begin{document}
@@ -51,7 +61,7 @@
 % -----------------------------------------------
 \section{Education}
 
-\noindent\textbf{Brown University} --- MS in Computer Science \hfill 2019 \\[1pt]
+\noindent\textbf{Brown University} --- MS in Computer Science \hfill 2018 -- 2019 \\[1pt]
 \noindent\textbf{Stanford University} --- BS in Computer Science \hfill 2015
 
 \vspace{2pt}
@@ -61,57 +71,54 @@
 % -----------------------------------------------
 \section{Skills}
 
-\begin{itemize}
-  \item Proficient in strongly typed and systems languages (Rust, C++, Java) and scripting/functional languages (TypeScript, Python, Scala)
-  \item Experienced fullstack engineer: frontend (React, React Native, Next.js, etc) and backend (distributed systems, cloud infrastructure on AWS/Azure)
-  \item Experienced in embedded and real-time systems engineering (SDK development, set-top box middleware, sub-microsecond latency constraints)
-\end{itemize}
-
-\vspace{2pt}
+\noindent
+\begin{tabular}{@{}l@{\hspace{8pt}}p{6.5in}@{}}
+  \textbf{Languages} & Rust, C++, Java, TypeScript, Python, Scala \\
+  \textbf{Frontend}  & React, React Native, Next.js \\
+  \textbf{Backend}   & Distributed systems, cloud infrastructure (AWS, Azure), LLM orchestration, CI/CD \\
+  \textbf{Systems}   & Embedded and real-time systems, SDK development, set-top box middleware, microsecond-scale latency budgets \\
+\end{tabular}
 
 % -----------------------------------------------
 %  EXPERIENCE
 % -----------------------------------------------
 \section{Experience}
 
-\employer{Stealth Agentic Workflow Startup}{Founder, CEO \& Solo Lead Engineer}{Sep 2024 -- Present \quad Seattle, WA}
+\employer{Katabarwa Labs -- \href{https://llmgraph.ai}{LLMGraph}}{Seattle, WA}
+\role{Founder \& Engineer}{Sep 2024 -- Present}
 \begin{itemize}
-  \item Architected and built a multi-tenant LLM-powered agentic workflow platform targeting low-to-no-code users, enabling non-technical users to build and deploy complex AI workflows without writing code
-  \item Delivers sub-5-second end-to-end workflow completion at high availability across a large consumer base, with routing across all major LLM providers based on workflow requirements
+  \item Architected and built a multi-tenant LLM-powered agentic workflow platform that let non-technical users build and deploy complex AI workflows without writing code
+  \item Delivered sub-5-second end-to-end workflow completion with high availability, routing each workflow across all major LLM providers based on its requirements
   \item Engineered a high-performance Rust backend optimized for concurrency, memory safety, and low-latency task dispatch, paired with a Next.js frontend for workflow authoring, execution, and monitoring
-  \item Implemented comprehensive CI test infrastructure (unit, integration, end-to-end) with automated deployment pipelines across environments
+  \item Built CI test infrastructure (unit, integration, end-to-end) and automated deployment pipelines across environments
 \end{itemize}
 
-\vspace{6pt}
-
-\employer{Microsoft -- Semantic Machines}{Senior Software Engineer}{Sep 2023 -- Sep 2024 \quad Seattle, WA}
+\employer{Microsoft -- Semantic Machines}{Seattle, WA}
+\role{Senior Software Engineer}{Sep 2023 -- Sep 2024}
 \begin{itemize}
   \item Architected and maintained the evaluation and analytics pipeline for Microsoft Copilot, owning infrastructure design, metrics, and reporting; reduced pipeline runtime from multiple days to a few hours
-  \item Delivered data tooling and reporting solutions for data science teams to track and validate Copilot quality at scale
-  \item Designed metric calibration infrastructure to validate evaluation fidelity
+  \item Built data tooling and reporting that let data science teams track and validate Copilot quality at scale
+  \item Designed metric calibration infrastructure to verify that Copilot evaluation metrics measured quality faithfully
 \end{itemize}
 
-\vspace{6pt}
-
-\employer{Microsoft -- Semantic Machines}{Software Engineer II}{Feb 2020 -- Sep 2023 \quad Seattle, WA}
+\vspace{2pt}
+\role{Software Engineer II}{Feb 2020 -- Sep 2023}
 \begin{itemize}
   \item Designed and delivered the full developer toolchain for a conversational AI SDK: VSCode extension with LSP support, CLI, and documentation
   \item Drove enterprise customer adoption by resolving integration blockers and shaping the API surface from real-world usage feedback
-  \item Built CI pipelines, training pipeline optimization, and alerting infrastructure
+  \item Built CI pipelines and alerting infrastructure; optimized model training pipelines
 \end{itemize}
 
-\vspace{6pt}
-
-\employer{Microsoft}{Software Engineer Masters Intern}{June 2019 -- Aug 2019 \quad Cambridge, MA}
+\employer{Microsoft}{Cambridge, MA}
+\role{Software Engineer Masters Intern}{Jun 2019 -- Aug 2019}
 \begin{itemize}
-  \item Built a mobile app leveraging Microsoft Cognitive Services and neural image transformation to empower students to create AI-generated art, with a ReactJS community display exhibited in a major cultural institution
+  \item Built a mobile app using Microsoft Cognitive Services and neural image transformation that let students create AI-generated art, with a ReactJS community display exhibited at a major cultural institution
 \end{itemize}
 
-\vspace{6pt}
-
-\employer{Bowers \& Wilkins}{Software Engineer}{June 2015 -- June 2018 \quad Redwood City, CA}
+\employer{Bowers \& Wilkins}{Redwood City, CA}
+\role{Software Engineer}{Jun 2015 -- Jun 2018}
 \begin{itemize}
-  \item Architected and delivered the audio source/sink manager and associated audio plugins (Spotify, Roon, AirPlay) powering the Formation Series (commercially shipped networked wireless speakers) under a strict sub-10-microsecond inter-device synchronization latency budget
+  \item Architected and delivered the audio source/sink manager and audio plugins (Spotify, Roon, AirPlay) powering the Formation Series, commercially shipped networked wireless speakers, under a sub-10-microsecond inter-device synchronization budget
   \item Built the application layer and SDK for a Broadcom VideoHub set-top box; delivered an IP camera discovery and media streaming engine; developed a hierarchical multi-process persistent data store
 \end{itemize}
 
