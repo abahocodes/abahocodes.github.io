@@ -6,7 +6,7 @@
     "location": "Seattle, WA",
     "role": "Founder & Engineer",
     "bullets": [
-      "Architected and built <a href='https://llmgraph.ai' target='_blank' class='text-site-accent'>llmgraph.ai</a> — a <strong class='text-site-text font-medium'>multi-tenant LLM-powered agentic workflow platform</strong> that let non-technical users build and deploy complex AI workflows without writing code",
+      "Architected and built <a href='https://llmgraph.ai' target='_blank' class='text-site-accent'>llmgraph.ai</a> — a <strong class='text-site-text font-medium'>multi-tenant no-code platform</strong> for creating customer support chatbots and AI agents grounded in an organization's documentation, deployed as REST APIs and embeddable chat widgets",
       "Delivered <strong class='text-site-text font-medium'>sub-5-second end-to-end workflow completion</strong> with high availability, routing each workflow across all major LLM providers based on its requirements",
       "Engineered a <strong class='text-site-text font-medium'>high-performance Rust backend</strong> optimized for concurrency, memory safety, and low-latency task dispatch",
       "Built a <strong class='text-site-text font-medium'>Next.js frontend</strong> for workflow authoring, execution, and monitoring; implemented full CI test infrastructure with automated deployment pipelines"
