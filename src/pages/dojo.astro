@@ -40,29 +40,37 @@ const shots = [
   {
     src: '/dojo/setup.jpg',
     title: 'First run',
-    caption: 'Pick your editor and language once. dojo checks which toolchains you have installed.',
-    alt: 'First-run setup: the editor chosen, then a list of languages with the version of each installed toolchain',
+    caption: 'Pick your editor and language once. dojo lists the editors it finds and checks your toolchains.',
+    alt: 'First-run setup: nvim chosen as the editor and Python 3 as the language',
   },
   {
     src: '/dojo/problem.jpg',
     title: 'Read',
-    caption: 'The statement, examples and constraints in the terminal, with a timer against the target time.',
-    alt: 'The Two Sum problem statement with two examples, constraints and the timer in the status bar',
+    caption: '/solve shows the problem and starts the timer. Press Enter when you are ready to code.',
+    alt: 'The Two Sum statement with examples and constraints, the timer running, and the prompt offering to open the editor',
+  },
+  {
+    src: '/dojo/editor.jpg',
+    title: 'Write',
+    caption: 'Your editor opens on a fresh file with the problem in a comment on top, so it stays in view while you work.',
+    alt: 'nvim with the Two Sum problem as comments at the top of the file and a hash-map solution below',
   },
   {
     src: '/dojo/fail.jpg',
-    title: 'Solve',
-    caption: 'Write the code in your own editor. Every save runs the visible tests and shows what you returned.',
-    alt: 'Two of three visible tests passing; the failing case shows the input, the expected [0,1] and the returned [0,0]',
+    title: 'Test',
+    caption: 'Every save runs the visible tests. A failing case shows the input, what was expected and what you returned.',
+    alt: 'Two of three visible tests passing; the failing case shows the expected [0,1] and the returned [0,0]',
   },
   {
     src: '/dojo/pass.jpg',
     title: 'Submit',
     caption: '/submit runs the hidden tests too, then records your time, runs and hints.',
-    alt: 'All 7 tests passing, then Solved #1 Two Sum in 00:19 against a 15:00 target, with 3 runs and 1 hint',
+    alt: 'All 7 tests passing, then Solved #1 Two Sum in 00:40 against a 15:00 target, with 3 runs and 1 hint',
   },
   {
     src: '/dojo/list.jpg',
+    w: 2160,
+    h: 1356,
     title: 'Browse',
     caption: 'Every question is tagged by topic, company and difficulty, and /list filters on any of them.',
     alt: '/list graphs showing graph questions with their difficulty and tags',
@@ -145,14 +153,13 @@ const commands = [
         playsinline
         controls
         preload="metadata"
-        aria-label="A one-minute dojo session: first-run setup, browsing graph questions, solving Two Sum with a failing test, a hint and a passing submit, then the report"
+        aria-label="A dojo session: first-run setup, solving Two Sum in nvim with the problem in a comment at the top, a failing test, a hint, a passing submit, then the report"
       >
       </video>
     </div>
     <p class="mt-3 font-mono text-2xs tracking-wider text-site-muted">
-      One session, real time: setup, /list graphs, /solve two sum, a failing save, /hint, a passing
-      /submit, then /report.
-    </p>
+      One session in real time: first-run setup, /solve two sum, the problem in nvim, a failing
+      save, /hint, the fix, /submit, then /report.</p>
   </section>
 
   <!-- ── STATS ── -->
@@ -214,8 +221,8 @@ const commands = [
               <img
                 src={s.src}
                 alt={s.alt}
-                width="2160"
-                height="1356"
+                width={s.w ?? 2056}
+                height={s.h ?? 1418}
                 loading="lazy"
                 class="block h-auto w-full"
               />
