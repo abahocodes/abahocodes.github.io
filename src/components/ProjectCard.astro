@@ -5,8 +5,10 @@ interface Props {
   description: string;
   reportUrl?: string;
   videoUrl?: string;
+  pageUrl?: string;
+  pageLabel?: string;
 }
-const { tag, title, description, reportUrl, videoUrl } = Astro.props;
+const { tag, title, description, reportUrl, videoUrl, pageUrl, pageLabel = 'View Project' } = Astro.props;
 ---
 <div class="bg-site-bg2 border border-site-border p-8
             transition-colors hover:border-site-accent">
@@ -16,6 +18,12 @@ const { tag, title, description, reportUrl, videoUrl } = Astro.props;
   <h3 class="font-playfair text-xl font-normal mb-3">{title}</h3>
   <p class="text-sm text-site-muted leading-7">{description}</p>
 
+  {pageUrl && (
+    <a href={pageUrl}
+       class="block mt-4 font-mono text-xs text-site-accent tracking-wider no-underline hover:underline">
+      {pageLabel} →
+    </a>
+  )}
   {reportUrl && (
     <a href={reportUrl}
        class="block mt-4 font-mono text-xs text-site-accent tracking-wider no-underline hover:underline">

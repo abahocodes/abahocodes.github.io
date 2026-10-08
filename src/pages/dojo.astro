@@ -1,0 +1,293 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+
+import person from '../data/person.json';
+import socials from '../data/socials.json';
+
+const repo = 'https://github.com/abahocodes/dojo';
+
+const reasons = [
+  {
+    title: 'Your editor, your setup',
+    body: 'No browser textarea. dojo opens the question in vim, VS Code or whatever you use, and every save runs the visible tests.',
+  },
+  {
+    title: 'Honest practice',
+    body: "A timer against each question's target time, hints only when you ask, and the explained solution only when you give up. All of it counts toward how well you know a topic.",
+  },
+  {
+    title: 'Knows your gaps',
+    body: 'Mastery per topic and per company, weighted toward what you did recently, and a suggested next question aimed at your weakest topic.',
+  },
+  {
+    title: 'Offline and private',
+    body: 'One binary and a local SQLite file. No account, and nothing leaves your machine.',
+  },
+];
+
+const stats = [
+  { value: '500', label: 'questions' },
+  { value: '6', label: 'languages' },
+  { value: '151 / 276 / 73', label: 'easy / medium / hard' },
+  { value: '0', label: 'accounts needed' },
+];
+
+const languages = ['Python', 'JavaScript', 'TypeScript', 'Java', 'C++', 'Go'];
+
+const shots = [
+  {
+    src: '/dojo/setup.jpg',
+    title: 'First run',
+    caption: 'Pick your editor and language once. dojo checks which toolchains you have installed.',
+    alt: 'First-run setup: the editor chosen, then a list of languages with the version of each installed toolchain',
+  },
+  {
+    src: '/dojo/problem.jpg',
+    title: 'Read',
+    caption: 'The statement, examples and constraints in the terminal, with a timer against the target time.',
+    alt: 'The Two Sum problem statement with two examples, constraints and the timer in the status bar',
+  },
+  {
+    src: '/dojo/fail.jpg',
+    title: 'Solve',
+    caption: 'Write the code in your own editor. Every save runs the visible tests and shows what you returned.',
+    alt: 'Two of three visible tests passing; the failing case shows the input, the expected [0,1] and the returned [0,0]',
+  },
+  {
+    src: '/dojo/pass.jpg',
+    title: 'Submit',
+    caption: '/submit runs the hidden tests too, then records your time, runs and hints.',
+    alt: 'All 7 tests passing, then Solved #1 Two Sum in 00:19 against a 15:00 target, with 3 runs and 1 hint',
+  },
+  {
+    src: '/dojo/list.jpg',
+    title: 'Browse',
+    caption: 'Every question is tagged by topic, company and difficulty, and /list filters on any of them.',
+    alt: '/list graphs showing graph questions with their difficulty and tags',
+  },
+  {
+    src: '/dojo/report.jpg',
+    title: 'Report',
+    caption: 'What you have solved, how fast, your activity, and the questions worth doing next.',
+    alt: 'The report overview: solved count, pass rate, an activity grid, results by difficulty and suggested next questions',
+  },
+  {
+    src: '/dojo/topics.jpg',
+    title: 'Topics',
+    caption: 'Every topic ranked by mastery, with how much evidence sits behind each score.',
+    alt: 'The Topics tab ranking topics weakest first, with mastery bars and evidence dots',
+  },
+];
+
+const commands = [
+  ['/solve 1', 'start on question 1 (or a slug, or search words)'],
+  ['/solve graphs -n 3', 'three graph questions in a row'],
+  ['/solve need', 'the questions that close your biggest gaps'],
+  ['/hint', 'a nudge, three per question'],
+  ['/submit', 'run the hidden tests too'],
+  ['/report', 'mastery by topic, company and difficulty'],
+];
+---
+
+<Layout title={`dojo — coding-interview practice in your terminal · ${person.name}`}>
+  <Nav socials={socials} emailUser={person.emailUser} emailDomain={person.emailDomain} base="/" />
+
+  <!-- ── HERO ── -->
+  <div id="hero" class="px-6 pt-28 pb-12 md:px-12 md:pt-36 md:pb-16">
+    <div class="mx-auto max-w-5xl">
+      <p class="mb-6 font-mono text-2xs tracking-widest text-site-accent uppercase">
+        Rust · Open source · MIT
+      </p>
+      <h1
+        class="mb-6 font-playfair leading-none font-bold tracking-tight"
+        style="font-size: clamp(3rem, 7vw, 6rem)"
+      >
+        <span class="text-site-accent">道場</span> dojo
+      </h1>
+      <p class="mb-10 max-w-2xl text-base leading-loose text-site-muted">
+        Coding-interview practice in your terminal, solved in your own editor. Pick a question,
+        write the solution where you write all your code, and dojo re-runs the tests every time you
+        save. It times you, tracks what you've mastered, and tells you what to practice next.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href="#install"
+          class="border border-site-accent bg-site-accent px-6 py-3 font-mono text-xs tracking-widest text-site-bg uppercase no-underline transition-all hover:bg-transparent hover:text-site-accent"
+        >
+          Install
+        </a>
+        <a
+          href={repo}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="border border-site-border px-6 py-3 font-mono text-xs tracking-widest text-site-muted uppercase no-underline transition-all hover:border-site-muted hover:text-site-text"
+        >
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DEMO VIDEO ── -->
+  <section class="mx-auto max-w-6xl px-6 pb-16 md:px-12 md:pb-24">
+    <div class="border border-site-border bg-site-bg2">
+      <video
+        class="block h-auto w-full"
+        src="/dojo/demo.mp4"
+        poster="/dojo/poster.jpg"
+        width="2560"
+        height="1440"
+        autoplay
+        muted
+        loop
+        playsinline
+        controls
+        preload="metadata"
+        aria-label="A one-minute dojo session: first-run setup, browsing graph questions, solving Two Sum with a failing test, a hint and a passing submit, then the report"
+      >
+      </video>
+    </div>
+    <p class="mt-3 font-mono text-2xs tracking-wider text-site-muted">
+      One session, real time: setup, /list graphs, /solve two sum, a failing save, /hint, a passing
+      /submit, then /report.
+    </p>
+  </section>
+
+  <!-- ── STATS ── -->
+  <section class="border-t border-site-border">
+    <div class="mx-auto grid max-w-5xl grid-cols-2 md:grid-cols-4">
+      {
+        stats.map((s) => (
+          <div class="border-b border-site-border px-6 py-8 md:border-b-0 md:px-8 [&:not(:last-child)]:md:border-r">
+            <p class="mb-1 font-playfair text-xl whitespace-nowrap text-site-text sm:text-3xl">{s.value}</p>
+            <p class="font-mono text-2xs tracking-widest text-site-muted uppercase">{s.label}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ── WHY ── -->
+  <section class="mx-auto max-w-5xl border-t border-site-border px-6 py-16 md:px-12 md:py-24">
+    <SectionHeader number="01" title="Why dojo" />
+    <div class="fade-in grid grid-cols-1 gap-6 sm:grid-cols-2">
+      {
+        reasons.map((r) => (
+          <div class="border border-site-border bg-site-bg2 p-8">
+            <h3 class="mb-3 font-playfair text-xl font-normal">{r.title}</h3>
+            <p class="text-sm leading-7 text-site-muted">{r.body}</p>
+          </div>
+        ))
+      }
+    </div>
+    <div class="fade-in mt-10 flex flex-wrap items-center gap-2">
+      <span class="mr-2 font-mono text-2xs tracking-widest text-site-accent uppercase">Solve in</span>
+      {
+        languages.map((l) => (
+          <span class="border border-site-border bg-site-bg3 px-3 py-1 font-mono text-xs tracking-wide text-site-muted">
+            {l}
+          </span>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ── TOUR ── -->
+  <section class="mx-auto max-w-5xl border-t border-site-border px-6 py-16 md:px-12 md:py-24">
+    <SectionHeader number="02" title="A tour" />
+    <div class="space-y-20">
+      {
+        shots.map((s, i) => (
+          <figure class="fade-in">
+            <figcaption class="mb-5 grid grid-cols-1 gap-2 md:grid-cols-[200px_1fr] md:items-baseline md:gap-10">
+              <h3 class="font-playfair text-2xl font-normal">
+                <span class="mr-3 font-mono text-2xs tracking-widest text-site-accent">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                {s.title}
+              </h3>
+              <p class="text-sm leading-7 text-site-muted">{s.caption}</p>
+            </figcaption>
+            <a href={s.src} target="_blank" rel="noopener" class="block">
+              <img
+                src={s.src}
+                alt={s.alt}
+                width="2160"
+                height="1356"
+                loading="lazy"
+                class="block h-auto w-full"
+              />
+            </a>
+          </figure>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ── INSTALL ── -->
+  <section
+    id="install"
+    class="mx-auto max-w-5xl border-t border-site-border px-6 py-16 md:px-12 md:py-24"
+  >
+    <SectionHeader number="03" title="Install" />
+    <div class="fade-in grid grid-cols-1 gap-6">
+      <div class="border border-site-border bg-site-bg2 p-5 md:p-8">
+        <p class="mb-4 font-mono text-2xs tracking-widest text-site-accent uppercase">
+          Homebrew · macOS and Linux
+        </p>
+        <pre
+          class="overflow-x-auto bg-site-bg3 p-4 font-mono text-xs text-site-text"><code>brew install abahocodes/tap/dojo</code></pre>
+      </div>
+      <div class="border border-site-border bg-site-bg2 p-5 md:p-8">
+        <p class="mb-4 font-mono text-2xs tracking-widest text-site-accent uppercase">
+          Install script
+        </p>
+        <pre
+          class="overflow-x-auto bg-site-bg3 p-4 font-mono text-xs text-site-text"><code>curl --proto '=https' --tlsv1.2 -LsSf \
+  https://github.com/abahocodes/dojo/releases/latest/download/dojo-installer.sh | sh</code></pre>
+      </div>
+    </div>
+    <p class="fade-in mt-6 text-sm leading-7 text-site-muted">
+      Prebuilt binaries for macOS (Apple silicon and Intel) and Linux (x86_64 and arm64) are on the <a
+        href={`${repo}/releases`}
+        class="text-site-accent no-underline hover:underline">releases page</a
+      >. You also need the toolchain for the language you solve in: Python 3.10+, Node.js 18+, a
+      JDK 17+, a C++17 compiler or Go 1.21+.
+    </p>
+
+    <div class="fade-in mt-12">
+      <p class="mb-4 font-mono text-2xs tracking-widest text-site-accent uppercase">
+        Then run <span class="text-site-text">dojo</span> and type
+      </p>
+      <div class="border border-site-border">
+        {
+          commands.map(([cmd, what]) => (
+            <div class="flex flex-col gap-1 border-b border-site-border px-5 py-3 last:border-b-0 sm:flex-row sm:gap-6">
+              <code class="shrink-0 font-mono text-xs text-site-text sm:w-48">{cmd}</code>
+              <span class="text-sm text-site-muted">{what}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer
+    class="flex flex-col items-center justify-between gap-4 border-t border-site-border px-6 py-8 md:flex-row md:px-12"
+  >
+    <a href="/" class="font-mono text-2xs tracking-wider text-site-muted no-underline hover:text-site-accent">
+      ← {person.name}
+    </a>
+    <a
+      href={repo}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="font-mono text-2xs tracking-wider text-site-muted no-underline hover:text-site-accent"
+    >
+      github.com/abahocodes/dojo
+    </a>
+  </footer>
+</Layout>

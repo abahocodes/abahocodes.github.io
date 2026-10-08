@@ -5,9 +5,10 @@ interface Social {
   label: string; href: string; display: string;
   icon: string; obfuscated?: boolean;
 }
-interface Props { socials: Social[]; emailUser: string; emailDomain: string; }
+interface Props { socials: Social[]; emailUser: string; emailDomain: string; base?: string; }
 
-const { socials, emailUser, emailDomain } = Astro.props;
+// `base` is '/' on pages other than the homepage, so section links go back to it.
+const { socials, emailUser, emailDomain, base = '' } = Astro.props;
 const navLinks = ['about', 'experience', 'education', 'projects', 'skills', 'resume', 'contact'];
 const emailSocial = socials.find(s => s.obfuscated);
 ---
@@ -16,7 +17,7 @@ const emailSocial = socials.find(s => s.obfuscated);
             px-6 md:px-12 py-5 border-b border-site-border"
      style="background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(12px);">
 
-  <a href="#hero" class="font-playfair font-bold text-lg text-site-accent no-underline">
+  <a href={`${base}#hero`} class="font-playfair font-bold text-lg text-site-accent no-underline">
     AK
   </a>
 
@@ -24,7 +25,7 @@ const emailSocial = socials.find(s => s.obfuscated);
   <ul class="hidden md:flex gap-10 list-none">
     {navLinks.map(link => (
       <li>
-        <a href={`#${link}`}
+        <a href={`${base}#${link}`}
            class="text-site-muted no-underline text-2xs font-mono tracking-widest
                   uppercase transition-colors hover:text-site-text">
           {link}
@@ -90,7 +91,7 @@ const emailSocial = socials.find(s => s.obfuscated);
             md:hidden hidden flex-col"
      style="background: var(--color-bg);">
   {navLinks.map(link => (
-    <a href={`#${link}`}
+    <a href={`${base}#${link}`}
        class="mobile-nav-link px-6 py-4 border-b border-site-border
               font-mono text-xs tracking-widest uppercase text-site-muted
               hover:text-site-text hover:bg-site-bg2 transition-colors no-underline">

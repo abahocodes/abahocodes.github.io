@@ -1,5 +1,12 @@
 [
   {
+    "tag": "Rust · Developer Tools",
+    "title": "dojo",
+    "description": "Coding-interview practice in your terminal, solved in your own editor. 500 questions in six languages, tests on every save, a timer against target time, and a mastery model that tells you what to practice next.",
+    "pageUrl": "/dojo/",
+    "pageLabel": "See dojo"
+  },
+  {
     "tag": "Deep Learning · 3D Vision",
     "title": "ShapeNet 3D Style Transfer",
     "description": "Using CycleGAN to learn bijections between 3D object taxonomies in the ShapeNet database — exploring what a car looks like as a plane, or furniture translated across categories.",
