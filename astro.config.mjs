@@ -1,8 +1,8 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import icon from "astro-icon";
+import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
+import icon from 'astro-icon';
 
 export default defineConfig({
-  site: "https://abahocodes.github.io",
+  site: 'https://abahocodes.github.io',
   integrations: [tailwind(), icon()],
 });

@@ -1,13 +1,17 @@
 ---
-interface Props { number: string; title: string; }
+interface Props {
+  number: string;
+  title: string;
+}
 const { number, title } = Astro.props;
 ---
-<div class="fade-in flex items-center gap-6 mb-14">
-  <span class="font-mono text-2xs text-site-accent tracking-widest uppercase">
+
+<div class="fade-in mb-14 flex items-center gap-6">
+  <span class="font-mono text-2xs uppercase tracking-widest text-site-accent">
     {number}
   </span>
   <h2 class="font-playfair text-4xl font-normal tracking-tight">
     {title}
   </h2>
-  <div class="flex-1 h-px bg-site-border"></div>
+  <div class="h-px flex-1 bg-site-border"></div>
 </div>

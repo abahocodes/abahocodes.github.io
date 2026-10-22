@@ -15,6 +15,7 @@ interface Props {
 }
 const { parts, sep = '.', class: cls = '' } = Astro.props;
 ---
+
 <span
   class={`obf-phone ${cls}`}
   data-parts={btoa(JSON.stringify(parts))}

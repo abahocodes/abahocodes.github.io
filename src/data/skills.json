@@ -17,12 +17,7 @@
   },
   {
     "group": "Embedded & Real-Time",
-    "tags": [
-      "SDK Development",
-      "Set-top Box",
-      "Audio Middleware",
-      "Low-latency Systems"
-    ]
+    "tags": ["SDK Development", "Set-top Box", "Audio Middleware", "Low-latency Systems"]
   },
   {
     "group": "Tooling",

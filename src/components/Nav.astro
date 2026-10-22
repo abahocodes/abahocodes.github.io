@@ -2,61 +2,83 @@
 import { Icon } from 'astro-icon/components';
 
 interface Social {
-  label: string; href: string; display: string;
-  icon: string; obfuscated?: boolean;
+  label: string;
+  href: string;
+  display: string;
+  icon: string;
+  obfuscated?: boolean;
 }
-interface Props { socials: Social[]; emailUser: string; emailDomain: string; base?: string; }
+interface Props {
+  socials: Social[];
+  emailUser: string;
+  emailDomain: string;
+  base?: string;
+}
 
 // `base` is '/' on pages other than the homepage, so section links go back to it.
 const { socials, emailUser, emailDomain, base = '' } = Astro.props;
 const navLinks = ['about', 'experience', 'education', 'projects', 'skills', 'resume', 'contact'];
-const emailSocial = socials.find(s => s.obfuscated);
+const emailSocial = socials.find((s) => s.obfuscated);
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center
-            px-6 md:px-12 py-5 border-b border-site-border"
-     style="background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(12px);">
-
-  <a href={`${base}#hero`} class="font-playfair font-bold text-lg text-site-accent no-underline">
+<nav
+  class="fixed left-0 right-0 top-0 z-50 flex items-center justify-between border-b border-site-border px-6 py-5 md:px-12"
+  style="background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(12px);"
+>
+  <a href={`${base}#hero`} class="font-playfair text-lg font-bold text-site-accent no-underline">
     AK
   </a>
 
   <!-- Desktop nav links -->
-  <ul class="hidden md:flex gap-10 list-none">
-    {navLinks.map(link => (
-      <li>
-        <a href={`${base}#${link}`}
-           class="text-site-muted no-underline text-2xs font-mono tracking-widest
-                  uppercase transition-colors hover:text-site-text">
-          {link}
-        </a>
-      </li>
-    ))}
+  <ul class="hidden list-none gap-10 md:flex">
+    {
+      navLinks.map((link) => (
+        <li>
+          <a
+            href={`${base}#${link}`}
+            class="font-mono text-2xs uppercase tracking-widest text-site-muted no-underline transition-colors hover:text-site-text"
+          >
+            {link}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 
   <!-- Right: social icons + theme toggle (always visible) -->
   <div class="flex items-center gap-3">
-
     <!-- Social icons: hidden on mobile -->
-    <div class="hidden md:flex items-center gap-3">
-      {socials.filter(s => !s.obfuscated).map(s => (
-        <a href={s.href} target="_blank" rel="noopener noreferrer"
-           aria-label={s.label}
-           class="text-site-muted hover:text-site-accent transition-colors p-1">
-          <Icon name={s.icon} class="w-[18px] h-[18px]" aria-hidden="true" />
-        </a>
-      ))}
-      {emailSocial && (
-        <a href="#"
-           class="obf-email text-site-muted hover:text-site-accent transition-colors p-1"
-           data-u={btoa(emailUser)}
-           data-d={btoa(emailDomain)}
-           data-icon-only="true"
-           aria-label="Email">
-          <Icon name={emailSocial.icon} class="w-[18px] h-[18px]" aria-hidden="true" />
-        </a>
-      )}
-      <div class="w-px h-4 bg-site-border mx-1"></div>
+    <div class="hidden items-center gap-3 md:flex">
+      {
+        socials
+          .filter((s) => !s.obfuscated)
+          .map((s) => (
+            <a
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              class="p-1 text-site-muted transition-colors hover:text-site-accent"
+            >
+              <Icon name={s.icon} class="h-[18px] w-[18px]" aria-hidden="true" />
+            </a>
+          ))
+      }
+      {
+        emailSocial && (
+          <a
+            href="#"
+            class="obf-email p-1 text-site-muted transition-colors hover:text-site-accent"
+            data-u={btoa(emailUser)}
+            data-d={btoa(emailDomain)}
+            data-icon-only="true"
+            aria-label="Email"
+          >
+            <Icon name={emailSocial.icon} class="h-[18px] w-[18px]" aria-hidden="true" />
+          </a>
+        )
+      }
+      <div class="mx-1 h-4 w-px bg-site-border"></div>
     </div>
 
     <!-- Theme toggle: always visible -->
@@ -64,77 +86,101 @@ const emailSocial = socials.find(s => s.obfuscated);
       id="theme-toggle"
       aria-label="Toggle light/dark theme"
       title="Toggle theme"
-      class="text-site-muted hover:text-site-accent transition-colors
-             flex items-center justify-center w-7 h-7
-             border border-transparent hover:border-site-border rounded-none"
+      class="flex h-7 w-7 items-center justify-center rounded-none border border-transparent text-site-muted transition-colors hover:border-site-border hover:text-site-accent"
     >
-      <Icon name="lucide:sun"  class="w-[18px] h-[18px]" id="icon-sun"  aria-hidden="true" />
-      <Icon name="lucide:moon" class="w-[18px] h-[18px]" id="icon-moon" aria-hidden="true" style="display:none" />
+      <Icon name="lucide:sun" class="h-[18px] w-[18px]" id="icon-sun" aria-hidden="true" />
+      <Icon
+        name="lucide:moon"
+        class="h-[18px] w-[18px]"
+        id="icon-moon"
+        aria-hidden="true"
+        style="display:none"
+      />
     </button>
 
     <!-- Hamburger: mobile only -->
     <button
       id="menu-toggle"
       aria-label="Open menu"
-      class="md:hidden text-site-muted hover:text-site-accent transition-colors
-             flex items-center justify-center w-7 h-7 ml-1"
+      class="ml-1 flex h-7 w-7 items-center justify-center text-site-muted transition-colors hover:text-site-accent md:hidden"
     >
-      <Icon name="lucide:menu" class="w-[20px] h-[20px]" id="icon-menu" aria-hidden="true" />
-      <Icon name="lucide:x"    class="w-[20px] h-[20px]" id="icon-close" aria-hidden="true" style="display:none" />
+      <Icon name="lucide:menu" class="h-[20px] w-[20px]" id="icon-menu" aria-hidden="true" />
+      <Icon
+        name="lucide:x"
+        class="h-[20px] w-[20px]"
+        id="icon-close"
+        aria-hidden="true"
+        style="display:none"
+      />
     </button>
   </div>
 </nav>
 
 <!-- Mobile menu drawer -->
-<div id="mobile-menu"
-     class="fixed top-[65px] left-0 right-0 z-40 border-b border-site-border
-            md:hidden hidden flex-col"
-     style="background: var(--color-bg);">
-  {navLinks.map(link => (
-    <a href={`${base}#${link}`}
-       class="mobile-nav-link px-6 py-4 border-b border-site-border
-              font-mono text-xs tracking-widest uppercase text-site-muted
-              hover:text-site-text hover:bg-site-bg2 transition-colors no-underline">
-      {link}
-    </a>
-  ))}
+<div
+  id="mobile-menu"
+  class="fixed left-0 right-0 top-[65px] z-40 hidden flex-col border-b border-site-border md:hidden"
+  style="background: var(--color-bg);"
+>
+  {
+    navLinks.map((link) => (
+      <a
+        href={`${base}#${link}`}
+        class="mobile-nav-link border-b border-site-border px-6 py-4 font-mono text-xs uppercase tracking-widest text-site-muted no-underline transition-colors hover:bg-site-bg2 hover:text-site-text"
+      >
+        {link}
+      </a>
+    ))
+  }
   <!-- Social links in mobile menu -->
   <div class="flex gap-5 px-6 py-5">
-    {socials.filter(s => !s.obfuscated).map(s => (
-      <a href={s.href} target="_blank" rel="noopener noreferrer"
-         aria-label={s.label}
-         class="text-site-muted hover:text-site-accent transition-colors">
-        <Icon name={s.icon} class="w-5 h-5" aria-hidden="true" />
-      </a>
-    ))}
-    {emailSocial && (
-      <a href="#"
-         class="obf-email text-site-muted hover:text-site-accent transition-colors"
-         data-u={btoa(emailUser)}
-         data-d={btoa(emailDomain)}
-         data-icon-only="true"
-         aria-label="Email">
-        <Icon name={emailSocial.icon} class="w-5 h-5" aria-hidden="true" />
-      </a>
-    )}
+    {
+      socials
+        .filter((s) => !s.obfuscated)
+        .map((s) => (
+          <a
+            href={s.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={s.label}
+            class="text-site-muted transition-colors hover:text-site-accent"
+          >
+            <Icon name={s.icon} class="h-5 w-5" aria-hidden="true" />
+          </a>
+        ))
+    }
+    {
+      emailSocial && (
+        <a
+          href="#"
+          class="obf-email text-site-muted transition-colors hover:text-site-accent"
+          data-u={btoa(emailUser)}
+          data-d={btoa(emailDomain)}
+          data-icon-only="true"
+          aria-label="Email"
+        >
+          <Icon name={emailSocial.icon} class="h-5 w-5" aria-hidden="true" />
+        </a>
+      )
+    }
   </div>
 </div>
 
 <script>
   // ── Theme toggle ──────────────────────────────────────────────────────────
-  const html     = document.documentElement;
-  const btn      = document.getElementById('theme-toggle')!;
-  const iconSun  = document.getElementById('icon-sun')!;
+  const html = document.documentElement;
+  const btn = document.getElementById('theme-toggle')!;
+  const iconSun = document.getElementById('icon-sun')!;
   const iconMoon = document.getElementById('icon-moon')!;
 
   function applyTheme(theme: string) {
     if (theme === 'light') {
       html.classList.add('light');
-      iconSun.style.display  = 'none';
+      iconSun.style.display = 'none';
       iconMoon.style.display = 'block';
     } else {
       html.classList.remove('light');
-      iconSun.style.display  = 'block';
+      iconSun.style.display = 'block';
       iconMoon.style.display = 'none';
     }
   }
@@ -146,32 +192,32 @@ const emailSocial = socials.find(s => s.obfuscated);
   });
 
   // ── Mobile menu toggle ────────────────────────────────────────────────────
-  const menuBtn    = document.getElementById('menu-toggle')!;
+  const menuBtn = document.getElementById('menu-toggle')!;
   const mobileMenu = document.getElementById('mobile-menu')!;
-  const iconMenu   = document.getElementById('icon-menu')!;
-  const iconClose  = document.getElementById('icon-close')!;
+  const iconMenu = document.getElementById('icon-menu')!;
+  const iconClose = document.getElementById('icon-close')!;
 
   menuBtn.addEventListener('click', () => {
     const isOpen = !mobileMenu.classList.contains('hidden');
     if (isOpen) {
       mobileMenu.classList.add('hidden');
       mobileMenu.classList.remove('flex');
-      iconMenu.style.display  = 'block';
+      iconMenu.style.display = 'block';
       iconClose.style.display = 'none';
     } else {
       mobileMenu.classList.remove('hidden');
       mobileMenu.classList.add('flex');
-      iconMenu.style.display  = 'none';
+      iconMenu.style.display = 'none';
       iconClose.style.display = 'block';
     }
   });
 
   // Close menu when a link is tapped
-  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+  document.querySelectorAll('.mobile-nav-link').forEach((link) => {
     link.addEventListener('click', () => {
       mobileMenu.classList.add('hidden');
       mobileMenu.classList.remove('flex');
-      iconMenu.style.display  = 'block';
+      iconMenu.style.display = 'block';
       iconClose.style.display = 'none';
     });
   });

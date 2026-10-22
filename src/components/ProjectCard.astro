@@ -8,37 +8,55 @@ interface Props {
   pageUrl?: string;
   pageLabel?: string;
 }
-const { tag, title, description, reportUrl, videoUrl, pageUrl, pageLabel = 'View Project' } = Astro.props;
+const {
+  tag,
+  title,
+  description,
+  reportUrl,
+  videoUrl,
+  pageUrl,
+  pageLabel = 'View Project',
+} = Astro.props;
 ---
-<div class="bg-site-bg2 border border-site-border p-8
-            transition-colors hover:border-site-accent">
-  <p class="font-mono text-2xs text-site-accent2 tracking-widest uppercase mb-3">
+
+<div class="border border-site-border bg-site-bg2 p-8 transition-colors hover:border-site-accent">
+  <p class="mb-3 font-mono text-2xs uppercase tracking-widest text-site-accent2">
     {tag}
   </p>
-  <h3 class="font-playfair text-xl font-normal mb-3">{title}</h3>
-  <p class="text-sm text-site-muted leading-7">{description}</p>
+  <h3 class="mb-3 font-playfair text-xl font-normal">{title}</h3>
+  <p class="text-sm leading-7 text-site-muted">{description}</p>
 
-  {pageUrl && (
-    <a href={pageUrl}
-       class="block mt-4 font-mono text-xs text-site-accent tracking-wider no-underline hover:underline">
-      {pageLabel} →
-    </a>
-  )}
-  {reportUrl && (
-    <a href={reportUrl}
-       class="block mt-4 font-mono text-xs text-site-accent tracking-wider no-underline hover:underline">
-      Read Report →
-    </a>
-  )}
-  {videoUrl && (
-    <div class="mt-4 relative pt-[56.25%]">
-      <iframe
-        src={videoUrl}
-        frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-        class="absolute top-0 left-0 w-full h-full"
-      />
-    </div>
-  )}
+  {
+    pageUrl && (
+      <a
+        href={pageUrl}
+        class="mt-4 block font-mono text-xs tracking-wider text-site-accent no-underline hover:underline"
+      >
+        {pageLabel} →
+      </a>
+    )
+  }
+  {
+    reportUrl && (
+      <a
+        href={reportUrl}
+        class="mt-4 block font-mono text-xs tracking-wider text-site-accent no-underline hover:underline"
+      >
+        Read Report →
+      </a>
+    )
+  }
+  {
+    videoUrl && (
+      <div class="relative mt-4 pt-[56.25%]">
+        <iframe
+          src={videoUrl}
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          class="absolute left-0 top-0 h-full w-full"
+        />
+      </div>
+    )
+  }
 </div>
